@@ -17,8 +17,8 @@
         <div class="content__main-image"></div>
         <div class="content__block-wedding"><h1 class="content__h1">мы женимся</h1></div>
         <div class="block-how-we-meet">
-            <div class="block-how-we-meet__title-block"><h2 class="block-how-we-meet__h2" id="guest-name">Уважаемый
-                гость</h2></div>
+            <div class="block-how-we-meet__title-block"><h2 class="block-how-we-meet__h2" id="guest-name"><span id="first-text">Уважаемый</span>
+                <span id="person-name">гость</span></h2></div>
             <div class="block-how-we-meet__svg-block">
                 <div class="block-how-we-meet__svg-icon">
                     <svg preserveAspectRatio="xMidYMid meet" data-bbox="49.942 49.794 502.116 502.117"
@@ -102,5 +102,28 @@
         </div>
     </section>
 </div>
+<script>
+    const persons = [
+        {id: '1a9fadc5004387f917a43ea573ba55fe05fddcd69c7ed536c660053d20273a30', name:"Бокоев Кутман Амирбаевич"},
+        {id: '0c7a96185c99353368da2d5be3a3598dfaa39a7991df4c1dae94af2d587f8cd8', name:"Бек"},
+        {id: '80c40e0d1ab5b2616f5fc72e0315a58a4489eb3184f5fb329f06119a9db4c3e9', name:"Марат"},
+        {id: '143b161a041df04fef5115e4325332ad82cd565fadcbe271ff9eee0284996654', name:"Насыйкат, Мыктыбек, Манас, Эламан, Усубалы"},
+    ]
+    const queryText = location.search
+    const personId = queryText.split('=')[1]
+    const el = document.getElementById('person-name')
+    const firstEl = document.getElementById('first-text')
+    const dearColleguesId = '143b161a041df04fef5115e4325332ad82cd565fadcbe271ff9eee0284996654'
+
+    persons.forEach((person) => {
+        if (queryText && person.id === personId) {
+            if (dearColleguesId === personId) {
+                firstEl.innerHTML = 'Уважаемые'
+            }
+            el.innerHTML = person.name
+        }
+    })
+
+</script>
 </body>
 </html>
